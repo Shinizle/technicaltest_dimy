@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +25,14 @@ Route::group(['prefix' => 'products'], function () {
     Route::delete('delete-product', [ProductController::class, 'deleteProduct']);
 });
 
-
 Route::group(['prefix' => 'customers'], function () {
     Route::get('get-all-customers', [CustomerController::class, 'getAllCustomer']);
     Route::post('create-customer', [CustomerController::class, 'createCustomer']);
     Route::get('get-customer-addresses', [CustomerController::class, 'getCustomerAddresses']);
     Route::post('add-customer-address', [CustomerController::class, 'addCustomerAddress']);
+});
+
+Route::group(['prefix' => 'payment-methods'], function () {
+    Route::get('get-all-payment-methods', [PaymentMethodController::class, 'getAllPaymentMethods']);
+    Route::post('add-payment-methods', [PaymentMethodController::class, 'addNewPaymentMethods']);
 });
