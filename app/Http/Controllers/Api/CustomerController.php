@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AddCustomerAddressRequest;
 use App\Http\Requests\Api\CreateCustomerRequest;
+use App\Http\Requests\Api\GetCustomerAddressesRequest;
 use App\Http\Resources\CustomerAddressResource;
+use App\Http\Resources\CustomerAddressResourceCollection;
 use App\Http\Resources\CustomerResource;
 use App\Http\Resources\CustomerResourceCollection;
 use App\Models\Customer;
@@ -26,6 +28,13 @@ class CustomerController extends Controller
         $data = $this->mapNewCustomer($request);
 
         return new CustomerResource($data);
+    }
+
+    public function getCustomerAddresses(GetCustomerAddressesRequest $request)
+    {
+        $data = CustomerAddress::whereCustomerId($request->customer_id)->paginate();
+
+        return new CustomerAddressResourceCollection($data);
     }
 
     public function addCustomerAddress(AddCustomerAddressRequest $request)

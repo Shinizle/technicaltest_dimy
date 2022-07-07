@@ -28,5 +28,6 @@ Route::group(['prefix' => 'products'], function () {
 Route::group(['prefix' => 'customers'], function () {
     Route::get('get-all-customers', [CustomerController::class, 'getAllCustomer']);
     Route::post('create-customer', [CustomerController::class, 'createCustomer']);
+    Route::get('get-customer-addresses', [CustomerController::class, 'getCustomerAddresses']);
     Route::post('add-customer-address', [CustomerController::class, 'addCustomerAddress']);
 });
