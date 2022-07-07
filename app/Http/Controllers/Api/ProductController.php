@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AddNewProductRequest;
+use App\Http\Requests\Api\DeleteProductRequest;
 use App\Http\Requests\Api\GetProductRequest;
 use App\Http\Requests\Api\UpdateProductRequest;
 use App\Http\Resources\ProductResource;
@@ -39,6 +40,13 @@ class ProductController extends Controller
         $data = $this->mapUpdateProduct($request);
 
         return new ProductResource($data);
+    }
+
+    public function deleteProduct(DeleteProductRequest $request)
+    {
+        Product::find($request->id)->delete();
+
+        return response()->json(['message' => "Product deleted successfully."]);
     }
 
     private function mapNewProduct($request)
