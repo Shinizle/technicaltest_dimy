@@ -18,4 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'products'], function () {
     Route::get('get-all-products', [ProductController::class, 'getAllProducts']);
     Route::get('get-product', [ProductController::class, 'getProduct']);
+    Route::post('add-new-product', [ProductController::class, 'addNewProduct']);
 });
