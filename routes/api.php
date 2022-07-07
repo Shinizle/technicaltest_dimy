@@ -40,5 +40,6 @@ Route::group(['prefix' => 'payment-methods'], function () {
 
 Route::group(['prefix' => 'orders'], function () {
     Route::get('get-all-orders', [OrderController::class, 'getAllOrders']);
+    Route::get('get-all-order-products', [OrderController::class, 'getAllOrderProducts']);
     Route::post('create-order', [OrderController::class, 'createOrder']);
 });
