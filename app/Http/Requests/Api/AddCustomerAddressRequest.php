@@ -24,7 +24,8 @@ class AddCustomerAddressRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'customer_id' => ['required', 'exists:customers,id'],
+            'address' => ['required'],
         ];
     }
 }
