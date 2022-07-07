@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\CustomerController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PaymentMethodController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
@@ -35,4 +36,9 @@ Route::group(['prefix' => 'customers'], function () {
 Route::group(['prefix' => 'payment-methods'], function () {
     Route::get('get-all-payment-methods', [PaymentMethodController::class, 'getAllPaymentMethods']);
     Route::post('add-payment-methods', [PaymentMethodController::class, 'addNewPaymentMethods']);
+});
+
+Route::group(['prefix' => 'orders'], function () {
+    Route::get('get-all-orders', [OrderController::class, 'getAllOrders']);
+    Route::post('create-order', [OrderController::class, 'createOrder']);
 });
