@@ -14,8 +14,6 @@ Follow the instruction below to properly install this project on your local mach
 - Run, "composer install"
 - Run, "php artisan key:generate"
 - Run, "php artisan migrate"
-- Run, "php artisan passport:install"
-- Run, "php artisan db:seed --class=RoleAndPermissionSeeder"
 - Now you can run the program on your local machine with your local web server such as Laragon, Valet or by php artisan:serve.
 
 ## Postman Collection
