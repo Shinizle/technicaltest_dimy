@@ -18,7 +18,7 @@ class OrderProductResourceCollection extends ResourceCollection
             'data' => $this->collection->transform(function($item){
                 return [
                     'id' => $item->id,
-                    'order_id' => $item->order_id
+                    'order_id' => $item->order_id,
                     'product' => new ProductResource($item->product),
                     'quantity' => $item->quantity,
                     'price' => $item->price,
